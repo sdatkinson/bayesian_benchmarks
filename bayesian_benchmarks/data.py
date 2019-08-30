@@ -82,7 +82,7 @@ class Dataset(object):
         return not os.path.isfile(self.datapath)
 
     def download(self):
-        logging.info('donwloading {} data'.format(self.name))
+        logging.info('downloading {} data'.format(self.name))
 
         is_zipped = np.any([z in self.url for z in ['.gz', '.zip', '.tar']])
 
@@ -102,7 +102,7 @@ class Dataset(object):
 
             # os.remove(filename)
 
-        logging.info('finished donwloading {} data'.format(self.name))
+        logging.info('finished downloading {} data'.format(self.name))
 
     def read_data(self):
         raise NotImplementedError
@@ -238,7 +238,7 @@ class Classification(Dataset):
             return True
 
     def download(self):
-        logging.info('donwloading classification data. WARNING: downloading 195MB file'.format(self.name))
+        logging.info('downloading classification data. WARNING: downloading 195MB file'.format(self.name))
 
         filename = os.path.join(DATA_PATH, 'classification_data.tar.gz')
 
@@ -252,7 +252,7 @@ class Classification(Dataset):
         tar.extractall(path=os.path.join(DATA_PATH, 'classification_data'))
         tar.close()
 
-        logging.info('finished donwloading {} data'.format(self.name))
+        logging.info('finished downloading {} data'.format(self.name))
 
 
     def read_data(self):

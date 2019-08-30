@@ -35,3 +35,23 @@ Coming soon:
 * [Deep Gaussian Processes using Stochastic Gradient Hamiltonian Monte Carlo
 ](https://arxiv.org/pdf/1806.05490.pdf)
 
+## How to use
+
+**Don't do `python setup.py install`.  Just run from the base directory in this repo.**
+
+Regression:
+```
+python bayesian_benchmarks/tasks/regression.py
+```
+Results are stored in `bayesian_benchmarks/results/results.db`.
+
+Viewing your results: Use jupyter notebook at 
+`bayesian_benchmarks/results/view_results.ipynb`.
+
+## Adding a new model
+
+* `mkdir bayesian_benchmarks/models/your_model`
+* `cp bayesian_benchmarks/models/template.py bayesian_benchmarks/models/your_model/models.py`
+* Implement the classes
+* Add `your_model` to the list in 
+

@@ -28,6 +28,7 @@ all_regression_models = [
       'gradient_boosting_machine',
       'adaboost',
       'mlp',
+      'gptorch_vfe'
       ]
 
 # add new classification models here

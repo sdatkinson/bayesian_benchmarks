@@ -8,6 +8,10 @@ Metrics reported are test log likelihood, mean squared error, and absolute error
 import argparse
 import numpy as np
 from scipy.stats import norm
+import sys
+import os
+
+sys.path.append(os.getcwd())
 
 from bayesian_benchmarks.data import get_regression_data
 from bayesian_benchmarks.database_utils import Database
@@ -48,6 +52,8 @@ def run(ARGS, data=None, model=None, is_test=False):
     res['test_rmse_unnormalized'] = np.average(du**2)**0.5
 
     res.update(ARGS.__dict__)
+    for k in res:
+        print("{:<25}: {}".format(k, res[k]))
 
     if not is_test:  # pragma: no cover
         with Database(ARGS.database_path) as db:
